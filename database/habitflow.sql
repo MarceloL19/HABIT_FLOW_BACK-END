@@ -43,6 +43,8 @@ CREATE TABLE cumplimientos (
   id_habito INT NOT NULL,
   fecha DATE NOT NULL,
   completado BOOLEAN,
+  CONSTRAINT uq_cumplimientos_habito_fecha
+    UNIQUE (id_habito, fecha),
   CONSTRAINT fk_cumplimientos_habito
     FOREIGN KEY (id_habito)
     REFERENCES habitos(id_habito)
