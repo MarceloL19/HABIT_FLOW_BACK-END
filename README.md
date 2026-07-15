@@ -18,20 +18,37 @@ Crear la base de datos en PostgreSQL:
 CREATE DATABASE habitflow_db;
 ```
 
-Luego ejecutar el script:
+La estructura principal de la base de datos se puede crear con migraciones de Sequelize:
 
-```text
-database/habitflow.sql
+```bash
+npm run db:migrate
 ```
 
-Ese script crea las tablas:
+Para cargar datos de prueba:
+
+```bash
+npm run db:seed
+```
+
+Las migraciones crean las tablas:
 
 - usuarios
 - preferencias
 - habitos
 - cumplimientos
 
-La parte actual del backend usa `usuarios` y `preferencias`. Las tablas `habitos` y `cumplimientos` quedan listas para el resto del equipo.
+Si se necesita revertir la base de datos durante pruebas locales:
+
+```bash
+npm run db:seed:undo
+npm run db:migrate:undo
+```
+
+Tambien se mantiene el script SQL manual como referencia:
+
+```text
+database/habitflow.sql
+```
 
 ## Variables de entorno
 
